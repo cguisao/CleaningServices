@@ -7,29 +7,40 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace CleaningServices
 {
     public class Startup
     {
+        private readonly IConfigurationRoot configuration;
+
+        public Startup(IHostingEnvironment env)
+        {
+            int number#1 = 5;
+
+            configuration = new ConfigurationBuilder()
+                                .AddEnvironmentVariables()
+                                .AddJsonFile(env.ContentRootPath + "/config.json")
+                                .AddJsonFile(env.ContentRootPath + "/config.development.json", true)
+                                .Build();
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-        }
-
+            services.AddTransient<FeatureToggle>(x => new FeatureToggle
+            {
+                EnableDeveloperExceptions = configuration.GetValue<bool>("FeatureToggle:EnableDeveloperExceptions")
+            });
+        } 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env
+            , ILoggerFactory loggerFactory, FeatureToggle features)
         {
-            // debugging purposes
-
             app.UseExceptionHandler("/error.html");
-
-            var configuration = new ConfigurationBuilder()
-                                .AddEnvironmentVariables()
-                                .Build();
-
-            if (configuration.GetValue<bool>("EnableDeveloperExceptions"))
+            
+            if(features.EnableDeveloperExceptions)
             {
                 app.UseDeveloperExceptionPage();
             }
