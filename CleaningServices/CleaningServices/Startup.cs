@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 
 namespace CleaningServices
 {
@@ -20,15 +21,27 @@ namespace CleaningServices
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            // debugging purposes
+
+            app.UseExceptionHandler("/error.html");
+
+            var configuration = new ConfigurationBuilder()
+                                .AddEnvironmentVariables()
+                                .Build();
+
+            if (configuration.GetValue<bool>("EnableDeveloperExceptions"))
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                if (context.Request.Path.Value.Contains("invalid"))
+                    throw new Exception("ERROR!");
+                await next();
             });
+            
+            app.UseFileServer();
         }
     }
 }
