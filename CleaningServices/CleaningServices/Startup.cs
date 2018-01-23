@@ -17,8 +17,6 @@ namespace CleaningServices
 
         public Startup(IHostingEnvironment env)
         {
-            int number#1 = 5;
-
             configuration = new ConfigurationBuilder()
                                 .AddEnvironmentVariables()
                                 .AddJsonFile(env.ContentRootPath + "/config.json")

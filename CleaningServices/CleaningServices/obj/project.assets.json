@@ -12542,11 +12542,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\GTI Solutions\\Cleaning Services\\CleaningServices\\CleaningServices\\CleaningServices.csproj",
+      "projectUniqueName": "D:\\GTI Solutions\\Cleaning ServicesBad\\CleaningServices\\CleaningServices\\CleaningServices.csproj",
       "projectName": "CleaningServices",
-      "projectPath": "D:\\GTI Solutions\\Cleaning Services\\CleaningServices\\CleaningServices\\CleaningServices.csproj",
+      "projectPath": "D:\\GTI Solutions\\Cleaning ServicesBad\\CleaningServices\\CleaningServices\\CleaningServices.csproj",
       "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-      "outputPath": "D:\\GTI Solutions\\Cleaning Services\\CleaningServices\\CleaningServices\\obj\\",
+      "outputPath": "D:\\GTI Solutions\\Cleaning ServicesBad\\CleaningServices\\CleaningServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12578,7 +12578,7 @@
         "dependencies": {
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0.0",
+            "version": "2.0",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.All": {
