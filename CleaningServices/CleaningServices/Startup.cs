@@ -31,6 +31,8 @@ namespace CleaningServices
             {
                 EnableDeveloperExceptions = configuration.GetValue<bool>("FeatureToggle:EnableDeveloperExceptions")
             });
+
+            services.AddMvc();
         } 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env
@@ -49,7 +51,14 @@ namespace CleaningServices
                     throw new Exception("ERROR!");
                 await next();
             });
-            
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("Default",
+                    "{controller=Home}/{action=Inex}/{id?"
+                    );
+            });
+
             app.UseFileServer();
         }
     }
