@@ -5,3 +5,6 @@ CleaningServices/.vs/config/applicationhost.config
 CleaningServices/.vs/CleaningServices/v15/Server/sqlite3/storage.ide-wal
 CleaningServices/.vs/CleaningServices/v15/Server/sqlite3/storage.ide
 CleaningServices/CleaningServices/obj/Debug/netcoreapp2.0/CleaningServices.csproj.FileListAbsolute.txt
+CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.runtimeconfig.json
+CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.deps.json
+CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.runtimeconfig.dev.json
