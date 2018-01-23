@@ -8,3 +8,8 @@ CleaningServices/CleaningServices/obj/Debug/netcoreapp2.0/CleaningServices.cspro
 CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.runtimeconfig.json
 CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.deps.json
 CleaningServices/CleaningServices/bin/Debug/netcoreapp2.0/CleaningServices.runtimeconfig.dev.json
+obj/project.assets.json
+obj/CleaningServices.csproj.nuget.g.targets
+obj/Debug/netcoreapp2.0/CleaningServices.csproj.FileListAbsolute.txt
+obj/CleaningServices.csproj.nuget.g.props
+obj/Debug/netcoreapp2.0/CleaningServices.AssemblyInfo.cs
