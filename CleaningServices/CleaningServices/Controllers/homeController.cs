@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CleaningServices.Controllers
 {
-    public class homeController 
+    public class HomeController : Controller
     {
-        public string Index()
+        // GET: /<controller>/
+        public IActionResult Index()
         {
-            return "hola carlos!!";
+            return View();
         }
     }
 }

@@ -55,8 +55,8 @@ namespace CleaningServices
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default",
-                    "{controller=Home}/{action=Inex}/{id?}"
-                    );
+                    "{controller=Home}/{action=Index}/{id?}"
+                );
             });
 
             app.UseFileServer();
