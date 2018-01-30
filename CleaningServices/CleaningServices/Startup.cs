@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using CleaningServices.Models;
 
 namespace CleaningServices
 {
@@ -27,6 +28,8 @@ namespace CleaningServices
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<FormatingServices>();
+
             services.AddTransient<FeatureToggle>(x => new FeatureToggle
             {
                 EnableDeveloperExceptions = configuration.GetValue<bool>("FeatureToggle:EnableDeveloperExceptions")
