@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<CleaningServices.Models.Post>
 @{
     Layout = "_Layout";
 }
@@ -10,6 +10,9 @@
 </p>
 
 <div class="blog-posts">
-    TODO:  Blog posts will go here!
+    @foreach (var post in Model)
+    {
+        @Html.Partial("_Post", post)
+    }
 </div>
 

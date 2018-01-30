@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using CleaningServices.Models;
 
 namespace CleaningServices.Controllers
 {
@@ -12,18 +13,46 @@ namespace CleaningServices.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            return View();
+            var posts = new[]
+            {
+                new Post
+                {
+                    Title = "My blog post",
+                    Posted = DateTime.Now,
+                    Author = "Carlos Guisao",
+                    Body = "This is a great blog post, don't you think?",
+                },
+                new Post
+                {
+                    Title = "My second blog post",
+                    Posted = DateTime.Now,
+                    Author = "Carlos Guisao",
+                    Body = "This is ANOTHER great blog post, don't you think?",
+                },
+            };
+
+            return View(posts);
         }
 
         [Route("{year:min(2000)}/{month:range(1,12)}/{key}")]
         public IActionResult Post(int year, int month, string key)
         {
-            ViewBag.Title = "My blog post";
-            ViewBag.Posted = DateTime.Now;
-            ViewBag.Author = "Carlos Guisao";
-            ViewBag.Body = "This is a great blog post, don't you think?";
+            var post = new Post
+            {
+                Title = "My blog post",
+                Posted = DateTime.Now,
+                Author = "Carlos Guisao",
+                Body = "This is a great blog post, don't you think?"
+            };
 
-            return View();
+            // using ViewBag example 
+
+            //ViewBag.Title = "My blog post";
+            //ViewBag.Posted = DateTime.Now;
+            //ViewBag.Author = "Carlos Guisao";
+            //ViewBag.Body = "This is a great blog post, don't you think?";
+
+            return View(post);
         }
     }
 }
